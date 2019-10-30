@@ -1,14 +1,26 @@
-let green = document.querySelector('.green');
-let red = document.querySelector('.red');
-let blue = document.querySelector('.blue');
-let text = document.getElementById('text');
 
-green.onclick = function(){
-  text.style.color = '#008000';
-}
-red.onclick = function(){
-  text.style.color = '#ff0000';
-}
-blue.onclick = function(){
-  text.style.color = '#0000ff';
-}
+// fonction pour modifier le paragraphe
+function customParagraph() {
+  //Début de modification
+  // récupère la couleur
+  var color = this.getAttribute('class').split(' ').slice(-1).toString();
+  //fin de la modification
+  var paragraph = document.querySelector('p');
+  paragraph.style.color = color;
+  }
+  /*var parent = document.querySelector('#text+div');
+  //selectionne le texte de la div
+  parent.addEventListener('click',function(event){
+  let target = event.target;
+  let classes = target.getAttribute('class');
+  // récupére couleur
+  let color = classes.split(' ').slice(-1).toString();
+  customParagraph(color);
+  })
+  on va selectionner l'élément DIV parent des boutons
+  */
+  // On effectue une boucle pour appliquer la couleur aux éléments
+   var targets = document.querySelectorAll('.color');
+   for (var i = 0; i < targets.length; i++) {
+     targets[i].addEventListener('click',customParagraph)
+   }
